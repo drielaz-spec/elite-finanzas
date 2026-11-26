@@ -1,0 +1,8 @@
+# Archivos de vídeo y audio pesados (superan el límite de 100 MB de GitHub)
+*.MOV
+*.mov
+*.mp4
+*.MP4
+*.m4v
+*.wav
+*.mp3
