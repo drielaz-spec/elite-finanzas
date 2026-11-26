@@ -1,0 +1,44 @@
+<template>
+  <style>
+@font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-500.woff2') format('woff2'); font-weight: 500; }
+
+#root { position: absolute; inset: 0; }
+.wrap { position: absolute; left: 0; right: 0; top: 285px; display: flex; flex-direction: column;
+        align-items: center; gap: 12px; text-align: center; }
+.script { font-family: 'Caveat'; font-weight: 500; color: #7CF0B4; font-size: 60px; line-height: 1;
+          text-shadow: 0 2px 6px rgba(0,0,0,.85), 0 0 18px rgba(0,0,0,.5); }
+.big { font-family: 'Montserrat'; font-weight: 800; color: #fff; font-size: 60px; line-height: 1.08;
+       text-transform: uppercase; letter-spacing: .01em; text-shadow: 0 3px 14px rgba(0,0,0,.55); max-width: 800px; }
+.badge { font-family: 'Montserrat'; font-weight: 800; color: #fff; font-size: 40px; letter-spacing: .04em;
+         border: 4px solid #3DDC84; border-radius: 12px; padding: 6px 22px; background: rgba(0,0,0,.25); }
+.list { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.item { display: flex; align-items: center; gap: 18px; font-family: 'Montserrat'; font-weight: 800;
+        color: #fff; font-size: 44px; text-transform: uppercase; text-shadow: 0 3px 12px rgba(0,0,0,.55); }
+.sq { width: 24px; height: 24px; border-radius: 6px; background: #3DDC84; flex: none; }
+.ck { color: #3DDC84; font-size: 50px; line-height: 1; flex: none; text-shadow: 0 2px 6px rgba(0,0,0,.95), 0 0 14px rgba(0,0,0,.8); }
+.hl { color: #3DDC84; text-shadow: 0 2px 6px rgba(0,0,0,.9), 0 0 16px rgba(0,0,0,.6); }
+.ul { position: relative; display: inline-block; }
+.line { position: absolute; left: 0; right: 0; bottom: -10px; height: 8px; border-radius: 4px; background: #3DDC84;
+        transform-origin: left center; }
+</style>
+  <div id="root" data-composition-id="sit" data-width="1080" data-height="1920" data-layout-allow-overlap>
+
+    <div id="sit-out" class="wrap">
+      <div class="list">
+        <div id="sit-i1" class="item"><span class="sq"></span>Vives de alquiler</div>
+        <div id="sit-i2" class="item"><span class="sq"></span>Vives con tus padres</div>
+        <div id="sit-i3" class="item"><span class="sq"></span>Compartes piso</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const IN = (sel, t, y = 24) => tl.fromTo(sel, { opacity: 0, y }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, t);
+    const POP = (sel, t) => tl.fromTo(sel, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, t);
+    const DRAW = (sel, t) => tl.fromTo(sel, { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, t);
+
+    IN("#sit-i1", 0.0, 0); tl.fromTo("#sit-i1", {x: -30}, {x: 0, duration: 0.35, ease: "power2.out"}, 0.0); IN("#sit-i2", 1.7, 0); tl.fromTo("#sit-i2", {x: -30}, {x: 0, duration: 0.35, ease: "power2.out"}, 1.7); IN("#sit-i3", 4.0, 0); tl.fromTo("#sit-i3", {x: -30}, {x: 0, duration: 0.35, ease: "power2.out"}, 4.0);
+    tl.to("#sit-out", { opacity: 0, duration: 0.3, ease: "power2.in" }, 4.48);
+    window.__timelines["sit"] = tl;
+  </script>
+</template>

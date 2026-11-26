@@ -15,3 +15,4 @@ node_modules/
 05-final/work-*/
 !04-projeto/*/assets/sfx/*.mp3
 studio.log
+04-projeto/*/renders/
