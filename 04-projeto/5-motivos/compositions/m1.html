@@ -1,0 +1,45 @@
+<template>
+  <style>
+@font-face { font-family: 'Caveat'; src: url('assets/fonts/caveat-500.woff2') format('woff2'); font-weight: 500; }
+
+#root { position: absolute; inset: 0; }
+.wrap { position: absolute; left: 0; right: 0; top: 285px; display: flex; flex-direction: column;
+        align-items: center; gap: 12px; text-align: center; }
+.script { font-family: 'Caveat'; font-weight: 500; color: #7CF0B4; font-size: 60px; line-height: 1;
+          text-shadow: 0 2px 6px rgba(0,0,0,.85), 0 0 18px rgba(0,0,0,.5); }
+.big { font-family: 'Montserrat'; font-weight: 800; color: #fff; font-size: 60px; line-height: 1.08;
+       text-transform: uppercase; letter-spacing: .01em; text-shadow: 0 3px 14px rgba(0,0,0,.55); max-width: 800px; }
+.badge { font-family: 'Montserrat'; font-weight: 800; color: #fff; font-size: 40px; letter-spacing: .04em;
+         border: 4px solid #3DDC84; border-radius: 12px; padding: 6px 22px; background: rgba(0,0,0,.25); }
+.list { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.item { display: flex; align-items: center; gap: 18px; font-family: 'Montserrat'; font-weight: 800;
+        color: #fff; font-size: 44px; text-transform: uppercase; text-shadow: 0 3px 12px rgba(0,0,0,.55); }
+.sq { width: 24px; height: 24px; border-radius: 6px; background: #3DDC84; flex: none; }
+.ck { color: #3DDC84; font-size: 50px; line-height: 1; flex: none; }
+.hl { color: #3DDC84; text-shadow: 0 2px 6px rgba(0,0,0,.9), 0 0 16px rgba(0,0,0,.6); }
+.ul { position: relative; display: inline-block; }
+.line { position: absolute; left: 0; right: 0; bottom: -10px; height: 8px; border-radius: 4px; background: #3DDC84;
+        transform-origin: left center; }
+</style>
+  <div id="root" data-composition-id="m1" data-width="1080" data-height="1920" data-layout-allow-overlap>
+
+    <div id="m1-out" class="wrap">
+      <div id="m1-b" class="badge">MOTIVO 1</div>
+      <div class="list">
+        <div id="m1-i1" class="item"><span class="sq"></span>Reforma a tu gusto</div>
+        <div id="m1-i2" class="item"><span class="sq"></span>+ valor para tu propiedad <span class="hl">&#8593;</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const IN = (sel, t, y = 24) => tl.fromTo(sel, { opacity: 0, y }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, t);
+    const POP = (sel, t) => tl.fromTo(sel, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, t);
+    const DRAW = (sel, t) => tl.fromTo(sel, { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, t);
+
+    POP("#m1-b", 0.08); IN("#m1-i1", 2.1, 0); tl.fromTo("#m1-i1", {x: -30}, {x: 0, duration: 0.4, ease: "power2.out"}, 2.1);
+    IN("#m1-i2", 8.85, 0); tl.fromTo("#m1-i2", {x: -30}, {x: 0, duration: 0.4, ease: "power2.out"}, 8.85);
+    tl.to("#m1-out", { opacity: 0, duration: 0.3, ease: "power2.in" }, 13.83);
+    window.__timelines["m1"] = tl;
+  </script>
+</template>

@@ -1,0 +1,18 @@
+# Archivos de vídeo y audio pesados (superan el límite de 100 MB de GitHub)
+*.MOV
+*.mov
+*.mp4
+*.MP4
+*.m4v
+*.wav
+*.mp3
+
+# Archivos generados por Hyperframes
+.hyperframes/
+render.log
+node_modules/
+05-final/.*-transaction-*/
+05-final/work-*/
+!04-projeto/*/assets/sfx/*.mp3
+studio.log
+04-projeto/*/renders/
