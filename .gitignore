@@ -14,3 +14,4 @@ node_modules/
 05-final/.*-transaction-*/
 05-final/work-*/
 !04-projeto/*/assets/sfx/*.mp3
+studio.log
