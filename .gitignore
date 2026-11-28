@@ -16,3 +16,4 @@ node_modules/
 !04-projeto/*/assets/sfx/*.mp3
 studio.log
 04-projeto/*/renders/
+!banco-de-estilos/**/*.mp4
